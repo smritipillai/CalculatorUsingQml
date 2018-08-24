@@ -9,14 +9,12 @@ Window {
     property string x;
     property string y;
     property string i;
-    property string a;
-    property string b;
-    property string c;
+    property string num1;
+    property string num2;
+    property string result;
 
 Rectangle {
     id: calci
-    width: 300
-    height: 300
     color: "black"
     anchors.centerIn: parent
     anchors.fill: parent
