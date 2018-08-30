@@ -10,21 +10,25 @@ Window {
     property string y;
     property string i;
     property string num1;
-    property string num2;
+    property int num2;
     property int result1 : 0
     property int result2 : 1
+    property int count;
 
 function add(num1){
-  num2 = (result1 + num1);
- // t.text = num2
+  num2 = (result1 + num1)
+   result1 = num2
+   count = 5;
 }
 function subtract(num1){
   num2 = (num1 - result1);
- // t.text = num2;
+  result1 = num2
+  count = 10;
 }
 function multiply(num1){
   num2 = (result2 * num1);
- // t.text = num2;
+  result2 = num2
+  count = 15;
 }
 Rectangle {
     id: calci
@@ -62,7 +66,7 @@ Button {
     onClicked: {
         i = button4.text
       //  var num1 = parseInt(i)
-        t.text = t.text + i 
+        t.text = t.text + i
     }
 }
 
@@ -113,7 +117,7 @@ Button {
     }
     onClicked: {
         i = button9.text
-        t.textt = t.text + i
+        t.text = t.text + i
       // var num1 = parseInt(i)
       /*  t.text = num1
         t.text = num1
@@ -285,12 +289,17 @@ Button {
         verticalCenter: button12.verticalCenter
     }
     onClicked: {
-      /* if(num1.text == '+'){
-           function add(num1,num2);
-       } else if(num1.text == '-'){
-           function subtract(num1,num2);
-       }*/
-       t.text = num1;
+        num1 = parseInt(t.text)
+        if(count == 5){
+              add(num1)
+          }
+        else if(count == 10){
+            subtract(num1)
+        }
+        else if(count == 15){
+            multiply(num1)
+        }
+        t.text = num2;
     }
 }
 
