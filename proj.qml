@@ -6,29 +6,35 @@ Window {
     id: appWindow
     width: 300
     height: 300
-    property string x;
-    property string y;
-    property string i;
-    property string num1;
-    property int num2;
+    property string x
+    property string y
+    property string i
+    property string num1
+    property int num2
     property int result1 : 0
     property int result2 : 1
-    property int count;
+    property int count
 
 function add(num1){
-  num2 = (result1 + num1)
-   result1 = num2
-   count = 5;
+    num2 = (result1 + num1)
+    result1 = num2
+    count = 5
 }
 function subtract(num1){
-  num2 = (num1 - result1);
-  result1 = num2
-  count = 10;
+    if(num1 > result1){
+        num2 = (result1 - num1)
+        result1 = -num2
+    }
+    else{
+        num2 = (result1 - num1)
+        result1 = num2
+    }
+    count = 10
 }
 function multiply(num1){
-  num2 = (result2 * num1);
-  result2 = num2
-  count = 15;
+    num2 = (result2 * num1)
+    result2 = num2
+    count = 15
 }
 Rectangle {
     id: calci
@@ -47,12 +53,7 @@ Rectangle {
     }
     onClicked: {
         i = button5.text
-    //   var num1 = parseInt(i)
         t.text = t.text + i
-        /* x = t.text + num1
-        var num2 = parseInt(i)
-        t.text = num2
-        y = t.text + num2 */
     }
   }
 
@@ -65,7 +66,6 @@ Button {
     }
     onClicked: {
         i = button4.text
-      //  var num1 = parseInt(i)
         t.text = t.text + i
     }
 }
@@ -79,13 +79,7 @@ Button {
     }
     onClicked: {
         i = button6.text
-      //  var num1 = parseInt(i)
         t.text = t.text + i
-      /*  t.text = num1
-        x = t.text + num1
-        var num2 = parseInt(i)
-        t.text = num2
-        y = t.text + num2 */
     }
 }
 
@@ -98,13 +92,7 @@ Button {
     }
     onClicked: {
         i = button8.text
-     //   var num1 = parseInt(i)
         t.text = t.text + i
-       /* t.text = num1
-        x = t.text + num1
-        var num2 = parseInt(i)
-        t.text = num2
-        y = t.text + num2 */
     }
 }
 
@@ -118,13 +106,6 @@ Button {
     onClicked: {
         i = button9.text
         t.text = t.text + i
-      // var num1 = parseInt(i)
-      /*  t.text = num1
-        t.text = num1
-        x = t.text + num1
-        var num2 = parseInt(i)
-        t.text = num2
-        y = t.text + num2 */
     }
 }
 
@@ -138,13 +119,6 @@ Button {
     onClicked: {
         i = button2.text
         t.text = t.text + i
-      /*  var num1 = parseInt(i)
-        t.text = num1
-        t.text = num1
-        x = t.text + num1
-        var num2 = parseInt(i)
-        t.text = num2
-        y = t.text + num2 */
     }
 }
 
@@ -158,13 +132,6 @@ Button {
    onClicked: {
         i = button3.text
         t.text = t.text + i
-       /* var num1 = parseInt(i)
-        t.text = num1
-        t.text = num1
-        x = t.text + num1
-        var num2 = parseInt(i)
-        t.text = num2
-        y = t.text + num2 */
     }
 }
 
@@ -179,13 +146,6 @@ Button {
     onClicked: {
         i = button1.text
         t.text = t.text + i
-    /*    var num1 = parseInt(i)
-        t.text = num1
-        t.text = num1
-        x = t.text + num1
-        var num2 = parseInt(i)
-        t.text = num2
-        y = t.text + num2 */
     }
   }
 
@@ -199,13 +159,6 @@ Button {
     onClicked: {
         i = button7.text
         t.text = t.text + i
-      /*  var num1 = parseInt(i)
-        t.text = num1
-       t.text = num1
-        x = t.text + num1
-        var num2 = parseInt(i)
-        t.text = num2
-        y = t.text + num2 */
     }
 }
 Button {
@@ -218,13 +171,6 @@ Button {
     onClicked: {
         i = button0.text
         t.text = t.text + i
-      /*  var num1 = parseInt(i)
-        t.text = num1
-        t.text = num1
-        x = t.text + num1
-        var num2 = parseInt(i)
-        t.text = num2
-        y = t.text + num2  */
     }
 }
 
@@ -236,10 +182,10 @@ Button {
         verticalCenter: button0.verticalCenter
     }
     onClicked: {
-          num1 = parseInt(t.text)
-          add(num1);
-          t.text = " "
-          }
+        num1 = parseInt(t.text)
+        add(num1)
+        t.text = " "
+    }
 }
 
 Button {
@@ -251,7 +197,7 @@ Button {
     }
     onClicked: {
         num1 = parseInt(t.text)
-        subtract(num1);
+        subtract(num1)
         t.text = " "
     }
 }
@@ -263,9 +209,9 @@ Button {
         top: button0.bottom
         horizontalCenter: calci.horizontalCenter
     }
-   onClicked: {
+    onClicked: {
         num1 = parseInt(t.text)
-        multiply(num1);
+        multiply(num1)
         t.text = " "
     }
 }
@@ -284,14 +230,14 @@ TextField {
 Button {
     id: button13
     text: "="
-     anchors {
+    anchors {
         left: button8.right
         verticalCenter: button12.verticalCenter
     }
     onClicked: {
         num1 = parseInt(t.text)
         if(count == 5){
-              add(num1)
+            add(num1)
           }
         else if(count == 10){
             subtract(num1)
