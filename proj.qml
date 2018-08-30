@@ -9,14 +9,14 @@ Window {
     property string x
     property string y
     property string i
-    property string num1
+    property int num1
     property int num2
     property int result1 : 0
     property int result2 : 1
     property int count
 
 function add(num1){
-    num2 = (result1 + num1)
+    num2 = result1 + num1
     result1 = num2
     count = 5
 }
@@ -237,7 +237,7 @@ Button {
     onClicked: {
         num1 = parseInt(t.text)
         if(count == 5){
-            add(num1)
+              add(num1)
           }
         else if(count == 10){
             subtract(num1)
@@ -258,6 +258,10 @@ Button {
     }
     onClicked: {
         t.text = " "
+        result1 = 0
+        result2 = 1
+        num1 = " "
+        num2 = " "
     }
     }
 }
